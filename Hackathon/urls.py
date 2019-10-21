@@ -17,8 +17,17 @@ from django.contrib import admin
 from django.urls import path
 
 from .views import home
+from .views import school
+from .views import students
+from .views import reports
+from .views import groups
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home.index),
+    path('school/', school.index),
+    path('school/students', students.index),
+    path('school/reports', reports.index),
+    path('school/groups', groups.index),
+
 ]
