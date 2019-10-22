@@ -1,7 +1,184 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-Welcome to home page.
+    <!-- Reset css -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom css -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body> 
+    <nav class="shadows-dp-1">
+        <div class="container">
+            <div class="header">
+                <h2>IST App Name</h2>
+                <a href="#"><i class="material-icons">menu</i></a>
+            </div>
 
-Wanna go to <a href="">hell</a>!
+            <ul>
+                <li class="active">
+                    <a href=""><i class="material-icons">home</i> Home</a>
+                </li>
+                <li>
+                    <a href=""><i class="material-icons">people</i>  Classes</a>
+                </li>
+                <li id="dropdown-school" class="dropdown">
+                    
+                    <a href="http://127.0.0.1:8000/school">
+                        <i class="material-icons arrow_dropdown">arrow_right</i>
+                        <i class="material-icons">school</i> 
+                        School
+                    </a>
+                    <ul class="drop-menu">
+                        <li>Students</li>
+                        <li>Reports</li>
+                        <li>Groups</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href=""><i class="material-icons">equalizer</i> Statistics</a>
+                </li>
+            </ul>
+        </div>
+    </nav> <!-- End Nav-->
+    <header id="header" class="outline">
+        <div class="breadcrumb">
+            <a href=""><i class="material-icons">keyboard_backspace</i></a>
+            <a href=""><h6>Main</h6></a>
+            <i class="material-icons">keyboard_arrow_right</i>
+            <a href=""><h6>Main</h6></a>
+        </div>
 
+        <div>
+            <a href="">School name</a>
+            <a href=""><i class="material-icons">search</i></a>
+            <a href=""><i class="material-icons">notifications</i></a>
+            <img class="profile" src="https://randomuser.me/api/portraits/women/68.jpg" alt="">
+        </div>
+    </header>
+    <main>
+        <h1>HELLO WORLD</h1>
+    </main>
+    <aside class="shadows-dp-1">
+        <div class="top-header">
+            <h2 class="medium-emphasis">Notification Hub</h2>
+            <div>
+                <i class="material-icons">more_vert</i>
+                <i class="material-icons">clear_all</i>
+                <i class="material-icons">close</i>
+            </div>
+        </div>
+
+        <div class="main">
+            <p class="overlive medium-emphasis divider">News</p>
+
+            <div class="notification outline new-notifcation">    
+                <div>
+                    <div class="header">
+                            <div>
+                                <i class="material-icons">notifications_active</i>
+                                <p>notification <span>- 1 day ago</span></p>
+                            </div>
+                        <i class="material-icons">expand_more</i>
+                    </div>
+                    <div class="main">
+                        <div>
+                            <p>App Title here</p>
+                            <p class="body2 medium-emphasis">Remember to do someth...</p>
+                        </div>
+                        <div>
+                            <i class="material-icons">arrow_forward</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="notification outline">    
+                <div>
+                    <div class="header">
+                        <div>
+                            <i class="material-icons">notifications_active</i>
+                            <p>notification <span>- 1 day ago</span></p>
+                        </div>
+                        <i class="material-icons">expand_more</i>
+                    </div>
+                    <div class="main">
+                        <div>
+                            <p>App Title here</p>
+                            <p class="body2 medium-emphasis">Remember to do someth...</p>
+                        </div>
+                        <div>
+                            <i class="material-icons">arrow_forward</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="overlive medium-emphasis divider">Suggestions</p>
+            <div class="notification outline">    
+                    <div>
+                        <div class="header">
+                            <div>
+                                <i class="material-icons suggestions">wb_incandescent</i>
+                                <p>Suggestions <span>- 1 day ago</span></p>
+                            </div>
+                            <i class="material-icons">expand_more</i>
+                        </div>
+                        <div class="main">
+                            <div>
+                                <p>Suggestion something</p>
+                                <p class="body2 medium-emphasis">Go to another page</p>
+                            </div>
+                            <div>
+                                <i class="material-icons">arrow_forward</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    </aside>
+</body>
+
+<script>
+const header = document.getElementById('header');
+
+window.addEventListener('scroll', function() {  
+  if (window.scrollY > 0) {
+    header.classList.add('shadows-dp-1');
+  } else {
+    header.classList.remove('shadows-dp-1');
+  }
+});
+
+
+function toggleClass(element, className){
+    if (!element || !className){
+        return;
+    }
+    
+    var classString = element.className, nameIndex = classString.indexOf(className);
+    if (nameIndex == -1) {
+        classString += ' ' + className;
+    }
+    else {
+        classString = classString.substr(0, nameIndex) + classString.substr(nameIndex+className.length);
+    }
+    element.className = classString;
+}
+
+document.getElementById('dropdown-school').addEventListener('click', function() {
+    toggleClass(document.getElementById('dropdown-school'), 'open');
+});
+</script>
 </html>
