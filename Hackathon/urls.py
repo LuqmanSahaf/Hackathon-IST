@@ -30,10 +30,10 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
-    path('school/', school.index),
-    path('school/students', students.index),
-    path('school/reports', reports.index),
-    path('school/groups', groups.index),
+    path('school/',TemplateView.as_view(template_name='school.html'), name='school'),
+    path('school/students',TemplateView.as_view(template_name='students.html'), name='students'),
+    path('school/reports',TemplateView.as_view(template_name='reports.html'), name='reports'),
+    path('school/groups',TemplateView.as_view(template_name='groups.html'), name='groups'),
 ]
 
 

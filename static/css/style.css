@@ -10,7 +10,7 @@
     --whith-medium-emphasis: rgba(255,255,255,0.6);
     --whith-disabled-emphasis: rgba(255,255,255,0.38);
 
-    --blac-high-emphasis: rgba(0, 0, 0, 0.87);
+    --black-high-emphasis: rgba(0, 0, 0, 0.87);
     --black-medium-emphasis: rgba(0, 0, 0, 0.6);
     --black-disabled-emphasis: rgba(0,0,0,0.38);
 
@@ -32,19 +32,19 @@ body{
 /*########################################*/
 h1{
     font-size: 2.4rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: 400;
     line-height: 1.33;
-    letter-spacing: 0em;
+    letter-spacing: 0.1rem;
     color: var(--black-high-emphasis);
 }
 
 h2{
     font-size: 1.6rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: 400;
     line-height: 1.33;
-    letter-spacing: 0em;
+    letter-spacing: 0.1rem;
     color: var(--black-high-emphasis);
 }
 
@@ -54,19 +54,19 @@ h4{}
 
 h5{
     font-size: 1.6rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: 400;
     line-height: 1.33;
-    letter-spacing: 0em;
+    letter-spacing: 0.1rem;
     color: var(--black-high-emphasis);
 }
 
 h6{
     font-size: 1.6rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: 400;
     line-height: 1.33;
-    letter-spacing: 0em;
+    letter-spacing: 0.1rem;
     color: var(--black-high-emphasis);
 }
 
@@ -119,6 +119,161 @@ p.medium-emphasis, a.medium-emphasis, span.medium-emphasis{
     margin-top: 2.4rem;
     padding: 0 0 0 1rem;
 }
+
+/*########################################*/
+/*# Button                               #*/
+/*########################################*/
+.btn{
+    padding: 1rem 1.6rem;
+    border: none;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.2rem;
+    border-radius: 4px;
+}
+
+.btn.btn-primary{
+    color:var(--whith-high-emphasis);
+    background: var(--ist-blue-color);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+}
+
+.btn.btn-primary:hover{
+    background: var(--ist-dark-blue-color);
+}
+
+.btn.btn-secondary{
+    color:var(--black-high-emphasis);
+    background: transparent;
+    border: 1px solid var(--ist-dark-gray-color);
+}
+
+.btn.btn-secondary:hover{
+    background: var(--ist-white-color);
+    border-color:var(--ist-white-color);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+}
+
+.btn.btn-text{
+    color:var(--ist-blue-color);
+    background: transparent;
+}
+
+.btn.btn-text:hover{
+    background: var(--ist-white-color);
+    border-color:var(--ist-white-color);
+}
+
+/*########################################*/
+/*# Multiselect                          #*/
+/*########################################*/
+.multiselect{
+    position: relative;
+    padding: 0 1.6rem;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 0 2rem 0 0;
+    height: 40px;
+    line-height: 1rem;
+}
+
+.multiselect:hover, .multiselect.open{
+    background: var(--ist-gray-color);
+}
+
+.multiselect ul{
+    opacity: 0;
+    pointer-events: none;
+    background: var(--ist-white-color);
+    border:1px solid var(--ist-dark-gray-color);
+    border-radius: 4px;
+    padding: 1.6rem 0.8rem;
+    position: absolute;
+    z-index: 999;
+    min-width: 20rem;
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12);
+    transition: 250ms all ease;
+}
+
+
+.multiselect.open ul{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.multiselect ul li{
+    font-size: 1.6rem;
+    padding: 0.8rem 0.8rem;
+    border-radius: 4px;
+    line-height: normal;
+}
+
+.multiselect ul li:hover{
+    background: var(--ist-gray-color);
+}
+
+
+/*########################################*/
+/*# Form / Input                         #*/
+/*########################################*/
+.form-center{
+    display: flex;
+    align-items: flex-start;
+    flex-flow: column;
+    width: 600px;
+    background: var(--ist-white-color);
+    border:1px solid var(--ist-dark-gray-color);
+    padding: 1.6rem;
+}
+
+.input-form{
+    border-radius: 4px;
+    background: var(--whith-high-emphasis);
+    border:1px solid var(--ist-dark-gray-color);
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 1.6rem 0 0 0;
+}
+
+.form-btn{
+    margin-top:1.6rem;
+}
+
+.form-btn .btn{
+    margin-right:1.6rem;
+}
+
+.input-form label{
+    font-size: 1.6rem;
+    position: absolute;
+    left: 1.6rem;
+    top:1.8rem;
+    transition: 250ms all ease;
+}
+
+.input-form input:focus + label, .input-form.active label{
+    font-size: 1.2rem;
+    position: absolute;
+    left: 1.6rem;
+    top:0.8rem;
+}
+
+.input-form.active label{
+    color:var(--black-medium-emphasis);
+}
+
+.input-form > input{
+    width: 100%;
+    font-size: 1.6rem;
+    padding: 2.2rem 1.6rem 1rem 1.6rem;
+    border:none;
+    border-radius: 4px;
+}
+
+
 /*########################################*/
 /*# Header                               #*/
 /*########################################*/
@@ -129,7 +284,7 @@ header{
     top: 0;
     left: 0;
     background: var(--ist-white-color);
-    z-index: 2;
+    z-index: 3;
     padding: 0 40px 0 296px;
     transition: 250ms box-shadow ease;
     display: flex;
@@ -146,6 +301,10 @@ header div.breadcrumb a, header div.breadcrumb i{
     padding: 0 1rem 0 0;
 }
 
+header div i.active, header div:last-child i:hover{
+    color: var(--black-high-emphasis);
+}
+
 header div:nth-child(2){
     display: flex;
     align-items: center;
@@ -153,6 +312,18 @@ header div:nth-child(2){
 
 header div:nth-child(2) a{
     padding: 0 4rem 0 0;
+}
+
+header div a h6{
+    color:var(--black-medium-emphasis);
+}
+
+header div a h6:hover{
+    color:var(--black-high-emphasis);
+}
+
+header div a:last-child h6{
+    color:var(--black-high-emphasis);
 }
 
 header .profile{
@@ -174,7 +345,7 @@ nav{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 3;
+    z-index: 4;
     padding: 0 1rem;
     
 }
@@ -198,9 +369,11 @@ nav ul li{
     display: flex;
     align-items: center;
 }
-
+/*########################################*/
+/*# Nav Dropdown                         #*/
+/*########################################*/
 nav ul li.dropdown{
-    padding: 0.5rem 1rem 1rem 0;
+    padding: 0.5rem 1rem 0.5rem 0;
 }
 
 nav ul li.active{
@@ -252,6 +425,7 @@ nav ul li.dropdown{
 }
 
 nav ul li.open{
+    background: var(--ist-lidt-dark-blue-color);
     flex-direction: column;
     align-items: start;
 }
@@ -271,7 +445,7 @@ nav ul li.open ul{
     position: relative;
     opacity: 1;
     pointer-events: all;
-    margin: 20px 0 0 0;
+    margin: 2.4rem 0 0 0;
 }
 
 nav ul li ul li{
@@ -280,6 +454,10 @@ nav ul li ul li{
     display: flex;
     align-items: center;
     font-size: 1.4rem;
+    margin: 0 0 2rem 0 ;
+}
+nav ul li ul li:last-child{
+    margin: 0 0 1rem 0 ;
 }
 /*########################################*/
 /*# Aside                                #*/
@@ -291,12 +469,12 @@ aside{
     position: fixed;
     top: 65px;
     right: 0;
-    z-index: 3;
+    z-index: 2;
 }
 
 aside .notification{
     padding: 0 1.6rem;
-    margin: 0 0 1px 0;
+    margin: -1px 0 0px 0;
     transition: 150ms all ease;
 }
 
@@ -386,6 +564,11 @@ main{
 .shadows-dp-1{
     box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
 }
+
+.shadows-dp-8{
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+
 .shadows-dp-24{
     box-shadow: rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
 }
