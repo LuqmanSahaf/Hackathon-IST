@@ -1,0 +1,30 @@
+<!-- templates/layouts/header.html -->
+<header id="header" class="outline">
+        <div class="breadcrumb">
+            <a href=""><i class="material-icons">keyboard_backspace</i></a>
+            <a href=""><h6>Main</h6></a>
+            <i class="material-icons">keyboard_arrow_right</i>
+            <a href=""><h6>Main</h6></a>
+        </div>
+        <div>
+            <p class="text">Welcome {{user.username}}</p>
+            <div id="multiselect-schools" class="multiselect">
+                <p>Administrator<i class="material-icons">expand_more</i></p>
+                <ul>
+                    <li>School name 1</li>
+                    <li>School name 2</li>
+                    <li>School name 3</li>
+                </ul>
+            </div>
+            <a href=""><i class="material-icons">search</i></a>
+            <a href=""><i class="material-icons active">notifications</i></a>
+            <div id="multiselect-profile" class="multiselect">
+                <img class="profile" src="https://randomuser.me/api/portraits/women/68.jpg" alt="">
+                <ul>
+                    <li><a href="">Your account</a></li>
+                    <li><a href="">Settings</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>

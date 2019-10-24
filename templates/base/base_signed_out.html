@@ -1,0 +1,32 @@
+<!-- templates/base_signed_out.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Reset css -->
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Custom css -->
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+</head>
+<body>
+    <header id="header" class="outline">
+        <div class="breadcrumb">
+        </div>
+    </header>
+     <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+{% include 'layouts/script.html'%}
+</html>

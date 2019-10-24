@@ -1,36 +1,20 @@
-<!-- templates/base.html -->
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <!-- Reset css -->
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
-  <!-- google fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Custom css -->
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
-</head>
-<body>
-    <header id="header" class="outline">
-        <div class="breadcrumb">
-        </div>
-    </header>
-     <main>
-    {% block content %}
-    {% endblock %}
-  </main>
-</body>
+<!--templates/layout/script.html-->
 <script>
-const header = document.getElementById('header');
+window.onload =  function(e) {
+
+
+const header = document.getElementById('sub-header');
+const main = document.getElementById('main-container');
  
+window.addEventListener('scroll', function() {  
+  if (window.scrollY > 100) {
+    header.classList.add('shadows-dp-1');
+    main.classList.add('scrolled');
+  } else {
+    header.classList.remove('shadows-dp-1');
+    main.classList.remove('scrolled');
+  }
+});
 window.addEventListener('scroll', function() {  
   if (window.scrollY > 0) {
     header.classList.add('shadows-dp-1');
@@ -57,9 +41,35 @@ function toggleClass(element, className){
 document.getElementById('dropdown-school').addEventListener('click', function() {
     toggleClass(document.getElementById('dropdown-school'), 'open');
 });
+
+document.getElementById('dropdown-billing').addEventListener('click', function() {
+    toggleClass(document.getElementById('dropdown-billing'), 'open');
+});
  
 document.getElementById('multiselect-schools').addEventListener('click', function() {
     toggleClass(document.getElementById('multiselect-schools'), 'open');
+    document.getElementById('multiselect-profile').classList.remove('open');
+});
+ 
+document.getElementById('multiselect-profile').addEventListener('click', function() {
+    toggleClass(document.getElementById('multiselect-profile'), 'open');
+    document.getElementById('multiselect-schools').classList.remove('open');
+});
+ 
+document.getElementById('clear_all').addEventListener('click', function() {
+    toggleClass(document.getElementById('notifica-01'), 'clear');
+ 
+    var testElement = document.getElementById('notifica-01');
+    if(testElement.classList.contains('hidden') === true){
+        toggleClass(document.getElementById('notifica-01'), 'hidden');
+    }else{
+        var delayInMilliseconds = 250; //1 second
+ 
+        setTimeout(function() {
+            toggleClass(document.getElementById('notifica-01'), 'hidden');
+        }, delayInMilliseconds);
+    }
+ 
 });
  
 const FloatLabel = (() => {
@@ -107,5 +117,5 @@ const FloatLabel = (() => {
 })();
  
 FloatLabel.init();
+}
 </script>
-</html>
