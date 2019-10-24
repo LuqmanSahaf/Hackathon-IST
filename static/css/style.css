@@ -50,7 +50,15 @@ h2{
 
 h3{}
 
-h4{}
+h4{
+    font-size: 2.4rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    line-height: 1.33;
+    letter-spacing: 0.1rem;
+    color: var(--black-high-emphasis);
+}
+
 
 h5{
     font-size: 1.6rem;
@@ -179,8 +187,29 @@ p.medium-emphasis, a.medium-emphasis, span.medium-emphasis{
     line-height: 1rem;
 }
 
+#multiselect-profile.multiselect{
+    position: relative;
+    padding: 0;
+    border-radius: 100%;
+    cursor: pointer;
+    margin: 0;
+    line-height: 0;
+    height: auto;
+    border: 5px solid var(--ist-white-color);
+}
+
 .multiselect:hover, .multiselect.open{
     background: var(--ist-gray-color);
+}
+
+.multiselect > p i{
+    font-size: 1.6rem;
+    line-height: 1rem;
+}
+
+#multiselect-profile.multiselect:hover, #multiselect-profile.multiselect.open{
+    background: transparent;
+    border: 5px solid var(--ist-gray-color);
 }
 
 .multiselect ul{
@@ -191,10 +220,15 @@ p.medium-emphasis, a.medium-emphasis, span.medium-emphasis{
     border-radius: 4px;
     padding: 1.6rem 0.8rem;
     position: absolute;
+    top:40px;
     z-index: 999;
     min-width: 20rem;
     box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12);
     transition: 250ms all ease;
+}
+
+#multiselect-profile.multiselect ul{
+right: 0;
 }
 
 
@@ -214,6 +248,9 @@ p.medium-emphasis, a.medium-emphasis, span.medium-emphasis{
     background: var(--ist-gray-color);
 }
 
+.multiselect ul li:active{
+    background: var(--ist-dark-gray-color);
+}
 
 /*########################################*/
 /*# Form / Input                         #*/
@@ -303,6 +340,10 @@ header div.breadcrumb a, header div.breadcrumb i{
 
 header div i.active, header div:last-child i:hover{
     color: var(--black-high-emphasis);
+}
+
+header div p.text{
+    margin: 0 2rem 0 0;
 }
 
 header div:nth-child(2){
@@ -454,10 +495,18 @@ nav ul li ul li{
     display: flex;
     align-items: center;
     font-size: 1.4rem;
-    margin: 0 0 2rem 0 ;
+    padding: 1rem 2.5rem;
+    margin: 0 0 1rem 0.8rem;
 }
-nav ul li ul li:last-child{
-    margin: 0 0 1rem 0 ;
+
+nav ul li.active{
+    background: var(--ist-lidt-dark-blue-color);
+    flex-direction: column;
+    align-items: start;
+}
+
+nav ul li ul li.active, nav ul li ul li:hover{
+    background: var(--ist-dark-blue-color);
 }
 /*########################################*/
 /*# Aside                                #*/
@@ -524,6 +573,10 @@ aside .main .notification div.header div i{
 aside .main .notification div.header i{
     font-size: 16px;
 }
+aside .main .notification div.main i.icon-right{
+    transform: rotate(180deg);
+}
+
 
 aside .main .notification div.header p{
     font-size: 12px;
@@ -537,7 +590,6 @@ aside .main .notification div.main p{
     margin: 0 0 1rem 0;
 }
 
-
 aside .main .notification.new-notifcation{
     border-left: 4px solid var(--ist-blue-color);
 }
@@ -545,6 +597,16 @@ aside .main .notification.new-notifcation{
 aside .main .notification.new-notifcation div.header i:first-child{
     color: var(--ist-blue-color);
 }
+
+aside .main .notification.new-notifcation.clear{
+    transform: translate(256px);
+}
+
+aside .main .notification.new-notifcation.hidden{
+    position: absolute;
+}
+
+
 
 /*########################################*/
 /*# Aside                                #*/
@@ -579,4 +641,36 @@ main{
 .outline{
    border: 1px solid;
    border-color: var(--ist-dark-gray-color);
+}
+
+/*########################################*/
+/*# Table                                #*/
+/*########################################*/
+table{
+    background: var(--ist-white-color);
+    border: 1px solid;
+    border-color: var(--ist-dark-gray-color);
+}
+
+table tr td, table tr th{
+    border-top: 1px solid var(--ist-dark-gray-color);
+    padding: 1.6rem 1.6rem;
+}
+
+table tr td{
+    color: var(--black-high-emphasis);
+    font-size: 1.6rem;
+}
+
+table tr:hover{
+    background: var(--ist-dark-gray-color);
+}
+
+table tr.table-head:hover{
+    background: transparent;
+}
+
+table tr th{
+    color: var(--black-medium-emphasis);
+    font-size: 1.4rem;
 }

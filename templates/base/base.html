@@ -1,0 +1,110 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Reset css -->
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Custom css -->
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+</head>
+<body>
+{% load tags %}
+{% url 'home' as home%}
+{% url 'school' as school%}
+{% url 'students' as students%}
+{% url 'reports' as reports%}
+{% url 'groups' as groups%}
+{% url 'statistics' as statistics%}
+{% url 'organisation' as organisation%}
+{% url 'economy' as economy%}
+{% url 'receiver' as receiver%}
+{% url 'settingsPricing' as settingsPricing%}
+{% url 'calculationModels' as calculationModels%}
+{% url 'filteredCalculation' as filteredCalculation%}
+{% url 'pricingAndAccounting' as pricingAndAccounting%}
+{% url 'updateData' as updateData%}
+{% url 'calculate' as calculate%}
+
+    {% if user.is_authenticated %}
+    {% include 'layouts/header.html'%}
+       <h1> Hi {{ user.username }}!</h1>
+        <nav class="shadows-dp-1">
+        <div class="container">
+            <div class="header">
+                <h2>IST Administration</h2>
+                <a href="#"><i class="material-icons">menu</i></a>
+            </div>
+
+            <ul>
+                <li>
+                    <a  href="{{home}}"> <i class="material-icons">home</i> Home</a>
+                </li> 
+                <li class="{% active request economy%} dropdown {% block economy_open %}{% endblock economy_open %}" id="dropdown-billing">
+                    
+                    <a href="{{economy}}">
+                    <i class="material-icons arrow_dropdown">arrow_right</i>
+                        <i class="material-icons">attach_money</i>
+                        Economy</a>
+                    <ul class="drop-menu">
+                    <li class="{% active request settingsPricing %}"> <a href="{{settingsPricing}}">Settings pricing</a></li>
+                    <li class="{% active request pricingAndAccounting%}"> <a href="{{pricingAndAccounting}}">Pricing and accounting</a></li>
+                     <li class="{% active request updateData%}"> <a href="{{updateData}}">Update data</a></li>
+                        <li class="{% active request calculate%}"> <a href="{{calculate}}">Calculate</a></li>
+                        <li class="{% active request filteredCalculation%}"> <a href="{{filteredCalculation}}">Filtered calculation</a></li>
+                        <!--<li class="{% active request groups%}"> <a href="">Model parameters</a></li> -->
+                        <li class="{% active request calculationModels%}"> <a href="{{calculationModels}}">Calculation models</a></li>
+                      <!--  <li class="{% active request groups%}"> <a href="">Execute sql-file</a></li>-->
+                        <li class="{% active request receiver%}"> <a href="{{receiver}}">Receiver</a></li>
+                       <!-- <li class="{% active request groups%}"> <a href="">Receiver type</a></li>-->
+                    </ul>
+                </li>
+                <li class="{% active request school%} dropdown {% block school_open %}{% endblock school_open %}" id="dropdown-school">
+                    <a href="{{school}}">
+                        <i class="material-icons arrow_dropdown">arrow_right</i>
+                        <i class="material-icons">school</i> 
+                        School
+                    </a>
+                    <ul class="drop-menu">
+                        <li class="{% active request students%}"> <a href="{{students}}">Students</a></li>
+                        <li class="{% active request reports%}"> <a href="{{reports}}">Reports</a></li>
+                        <li class="{% active request groups%}"> <a href="{{groups}}">Groups</a></li>
+                    </ul>
+                </li>
+                <li class="{% active request statistics%}">
+                    <a href="{{statistics}}"><i class="material-icons">equalizer</i> Statistics</a>
+                </li>
+                <li class="{% active request organisation%}">
+                    <a href="{{organisation}}"><i class="material-icons">location_city</i> Organisation</a>
+                </li>
+            </ul>
+        </div>
+    </nav> <!-- End Nav-->
+  {% include 'layouts/aside.html'%}
+  <main>
+        {% block loggedIn_content %}
+       
+        {% endblock %}
+    </main>
+    {% else %}
+       {% include 'layouts/headerSignedOut.html'%}
+        <main>
+            {% block content %}
+            {% endblock %}
+            <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+            <a class="btn btn-secondary" href="{% url 'signup' %}">Sign up</a>
+        </main>
+    {% endif %}
+</body>
+{% include 'layouts/script.html'%}
+</html>
