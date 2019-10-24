@@ -121,3 +121,7 @@ STATICFILES_DIRS = (
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+ES_ENABLED = True
+ES_ADDRESS = 'localhost:9200'
+ES_INDEX = 'hackathon'

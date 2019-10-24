@@ -31,7 +31,7 @@
 
             <ul>
                 <li class="active">
-                    <a href=""><i class="material-icons">home</i> Home</a>
+                    <a href={% url 'home' %}><i class="material-icons">home</i> Home</a>
                 </li>
                 <li>
                     <a href=""><i class="material-icons">people</i>  Classes</a>
@@ -123,7 +123,7 @@
                         </div>
                         <div class="main">
                             <div>
-                                <p>Suggestion something</p>
+                                <p><a href="{{ suggestion.url }}">{{ suggestion.title }}</a></p>
                                 <p class="body2 medium-emphasis">Go to another page</p>
                             </div>
                             <div>
