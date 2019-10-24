@@ -1,14 +1,30 @@
 <!-- templates/registration/login.html -->
 {% extends 'base.html' %}
-
 {% block title %}Login{% endblock %}
 
 {% block content %}
 <h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
+<!--<form method="post">
   {{ form.as_p }}
-  <button type="submit">Login</button>
+  <button  class="btn btn-primary" type="submit">Login</button>
+  <a class="btn btn-secondary" href="{% url 'signup' %}">Signup</a>
+</form>-->
+<form method="post" class="form-center">
+    {{ form.non_field_errors }}
+    <div class="input-form">
+         {% csrf_token %}
+        {{ form.username.errors }}
+        {{ form.username }}
+        <label for="{{ form.username.id_for_label }}">Username:</label>
+    </div>
+    <div class="input-form">
+        {{ form.password.errors }}
+        {{ form.password }}
+        <label for="{{ form.password.id_for_label }}">Password:</label>
+    </div>
+  <div class="form-btn">
+    <button  class="btn btn-primary" type="submit">Login</button>
+    <a class="btn btn-secondary" href="{% url 'signup' %}">Signup</a>
+  </div>
 </form>
-    <a class="btn btn-primary" href="{% url 'signup' %}">Signup</a>
 {% endblock %}

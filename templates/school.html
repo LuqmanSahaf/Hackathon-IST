@@ -1,9 +1,8 @@
-<html>
-<header> Welcome to School Page. </header>
- <ul>
-    <li> <a href="http://localhost:8000/school/students">Students</a></li>
-    <li> <a href="http://localhost:8000/school/reports">Reports</a></li>
-    <li> <a href="http://localhost:8000/school/groups">Groups</a></li>
-</ul>
+<!-- templates/school.html -->
+{% extends 'home.html' %}
 
-</html>
+{% block title %}School{% endblock %}
+
+{% block sub_content %}
+   <h1>"This is the School page"</h1>
+{% endblock %}

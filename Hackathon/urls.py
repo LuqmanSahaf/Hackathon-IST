@@ -15,13 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic.base import TemplateView
 
-from .views import home
-from .views import school
-from .views import students
-from .views import reports
-from .views import groups
+from .views import home, school, students, reports, groups
 
 admin.autodiscover()
 
@@ -29,11 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
-    path('school/', school.index),
-    path('school/students', students.index),
-    path('school/reports', reports.index),
-    path('school/groups', groups.index),
+    path('', home.index, name='home'),
+    path('school/', school.index, name='school'),
+    path('school/students', students.index, name='students'),
+    path('school/reports', reports.index, name='reports'),
+    path('school/groups', groups.index, name='groups'),
 ]
-
-
