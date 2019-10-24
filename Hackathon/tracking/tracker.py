@@ -99,7 +99,6 @@ class Tracker(object):
                     uid=request.user.id).save()
             response.__delitem__('page_title')
             return response
-
         return wrapper
 
     @staticmethod

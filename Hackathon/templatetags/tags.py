@@ -1,8 +1,10 @@
 from django import template
 register = template.Library()
+
+
 @register.simple_tag
-def active(request, pattern):
+def active(path, pattern):
     import re
-    if re.search(pattern, request.path):
-        return "active"
+    if re.search(pattern, path):
+        return 'active'
     return ''

@@ -50,41 +50,41 @@
                 <li >
                     <a  href="{{home}}"> <i class="material-icons">home</i> Home</a>
                 </li> 
-                <li class="{% active request economy%} dropdown {% block economy_open %}{% endblock economy_open %}" id="dropdown-billing">
+                <li class="{% active path economy%} dropdown {% block economy_open %}{% endblock economy_open %}" id="dropdown-billing">
                     
                     <a href="{{economy}}">
                     <i class="material-icons arrow_dropdown">arrow_right</i>
                         <i class="material-icons">attach_money</i>
                         Economy</a>
                     <ul class="drop-menu">
-                    <li class="{% active request settingsPricing %}"> <a href="{{settingsPricing}}">Settings pricing</a></li>
-                    <li class="{% active request pricingAndAccounting%}"> <a href="{{pricingAndAccounting}}">Pricing and accounting</a></li>
-                     <li class="{% active request updateData%}"> <a href="{{updateData}}">Update data</a></li>
-                        <li class="{% active request calculate%}"> <a href="{{calculate}}">Calculate</a></li>
-                        <li class="{% active request filteredCalculation%}"> <a href="{{filteredCalculation}}">Filtered calculation</a></li>
-                        <!--<li class="{% active request groups%}"> <a href="">Model parameters</a></li> -->
-                        <li class="{% active request calculationModels%}"> <a href="{{calculationModels}}">Calculation models</a></li>
-                      <!--  <li class="{% active request groups%}"> <a href="">Execute sql-file</a></li>-->
-                        <li class="{% active request receiver%}"> <a href="{{receiver}}">Receiver</a></li>
-                       <!-- <li class="{% active request groups%}"> <a href="">Receiver type</a></li>-->
+                    <li class="{% active path settingsPricing %}"> <a href="{{settingsPricing}}">Settings pricing</a></li>
+                    <li class="{% active path pricingAndAccounting%}"> <a href="{{pricingAndAccounting}}">Pricing and accounting</a></li>
+                     <li class="{% active path updateData%}"> <a href="{{updateData}}">Update data</a></li>
+                        <li class="{% active path calculate%}"> <a href="{{calculate}}">Calculate</a></li>
+                        <li class="{% active path filteredCalculation%}"> <a href="{{filteredCalculation}}">Filtered calculation</a></li>
+                        <!--<li class="{% active path groups%}"> <a href="">Model parameters</a></li> -->
+                        <li class="{% active path calculationModels%}"> <a href="{{calculationModels}}">Calculation models</a></li>
+                      <!--  <li class="{% active path groups%}"> <a href="">Execute sql-file</a></li>-->
+                        <li class="{% active path receiver%}"> <a href="{{receiver}}">Receiver</a></li>
+                       <!-- <li class="{% active path groups%}"> <a href="">Receiver type</a></li>-->
                     </ul>
                 </li>
-                <li class="{% active request school%} dropdown {% block school_open %}{% endblock school_open %}" id="dropdown-school">
+                <li class="{% active path school%} dropdown {% block school_open %}{% endblock school_open %}" id="dropdown-school">
                     <a href="{{school}}">
                         <i class="material-icons arrow_dropdown">arrow_right</i>
                         <i class="material-icons">school</i> 
                         School
                     </a>
                     <ul class="drop-menu">
-                        <li class="{% active request students%}"> <a href="{{students}}">Students</a></li>
-                        <li class="{% active request reports%}"> <a href="{{reports}}">Reports</a></li>
-                        <li class="{% active request groups%}"> <a href="{{groups}}">Groups</a></li>
+                        <li class="{% active path students%}"> <a href="{{students}}">Students</a></li>
+                        <li class="{% active path reports%}"> <a href="{{reports}}">Reports</a></li>
+                        <li class="{% active path groups%}"> <a href="{{groups}}">Groups</a></li>
                     </ul>
                 </li>
-                <li class="{% active request statistics%}">
+                <li class="{% active path statistics%}">
                     <a href="{{statistics}}"><i class="material-icons">equalizer</i> Statistics</a>
                 </li>
-                <li class="{% active request organisation%}">
+                <li class="{% active path organisation%}">
                     <a href="{{organisation}}"><i class="material-icons">location_city</i> Organisation</a>
                 </li>
             </ul>
