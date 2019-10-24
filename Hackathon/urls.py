@@ -15,13 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic.base import TemplateView
+from django.views.generic import TemplateView
 
-from .views import home
-from .views import school
-from .views import students
-from .views import reports
-from .views import groups
+from .views import home, school, students, reports, groups
+
 
 admin.autodiscover()
 
@@ -29,11 +26,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', TemplateView.as_view(template_name='home/home.html'),name='home'),
-    path('school/',TemplateView.as_view(template_name='school/school.html'), name='school'),
-    path('school/students',TemplateView.as_view(template_name='school/students.html'), name='students'),
-    path('school/reports',TemplateView.as_view(template_name='school/reports.html'), name='reports'),
-    path('school/groups',TemplateView.as_view(template_name='school/groups.html'), name='groups'),
+    path('', home.index, name='home'),
+    path('school/', school.index, name='school'),
+    path('school/students', students.index, name='students'),
+    path('school/reports', reports.index, name='reports'),
+    path('school/groups', groups.index, name='groups'),
     path('statistics/',TemplateView.as_view(template_name='statistics/statistics.html'), name='statistics'),
     path('organisation/',TemplateView.as_view(template_name='organisation/organisation.html'), name='organisation'),
     path('economy/',TemplateView.as_view(template_name='economy/economy.html'), name='economy'),
@@ -45,5 +42,3 @@ urlpatterns = [
     path('economy/receiver/',TemplateView.as_view(template_name='economy/receiver.html'), name='receiver'),
     path('economy/updatedata/',TemplateView.as_view(template_name='economy/update_data.html'), name='updateData'),
 ]
-
-
