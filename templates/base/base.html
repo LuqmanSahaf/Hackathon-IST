@@ -47,7 +47,7 @@
             </div>
 
             <ul>
-                <li>
+                <li >
                     <a  href="{{home}}"> <i class="material-icons">home</i> Home</a>
                 </li> 
                 <li class="{% active request economy%} dropdown {% block economy_open %}{% endblock economy_open %}" id="dropdown-billing">
@@ -90,10 +90,12 @@
             </ul>
         </div>
     </nav> <!-- End Nav-->
-  {% include 'layouts/aside.html'%}
-  <main>
+    {% include 'layouts/aside.html'%}
+    <main {% block mainId %} {% endblock mainId%}>
+        {% block subHeader%}
+        {% endblock subHeader%}
         {% block loggedIn_content %}
-       
+
         {% endblock %}
     </main>
     {% else %}

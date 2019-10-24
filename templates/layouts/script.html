@@ -1,7 +1,20 @@
 <!--templates/layout/script.html-->
 <script>
-const header = document.getElementById('header');
+window.onload =  function(e) {
+
+
+const header = document.getElementById('sub-header');
+const main = document.getElementById('main-container');
  
+window.addEventListener('scroll', function() {  
+  if (window.scrollY > 100) {
+    header.classList.add('shadows-dp-1');
+    main.classList.add('scrolled');
+  } else {
+    header.classList.remove('shadows-dp-1');
+    main.classList.remove('scrolled');
+  }
+});
 window.addEventListener('scroll', function() {  
   if (window.scrollY > 0) {
     header.classList.add('shadows-dp-1');
@@ -104,4 +117,5 @@ const FloatLabel = (() => {
 })();
  
 FloatLabel.init();
+}
 </script>

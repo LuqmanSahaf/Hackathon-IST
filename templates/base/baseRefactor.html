@@ -36,11 +36,10 @@
 {% url 'updateData' as updateData%}
 {% url 'calculate' as calculate%}
 
-{% if user.is_authenticated %}
-
+    {% if user.is_authenticated %}
     {% include 'layouts/header.html'%}
-
-    <nav class="shadows-dp-1">
+       <h1> Hi {{ user.username }}!</h1>
+        <nav class="shadows-dp-1">
         <div class="container">
             <div class="header">
                 <h2>IST Administration</h2>
@@ -48,11 +47,10 @@
             </div>
 
             <ul>
-                <li class="{% active request home%}">
+                <li class="{% active request home %}">
                     <a  href="{{home}}"> <i class="material-icons">home</i> Home</a>
                 </li> 
-              </li> 
-                 <li class="{% active request economy%} dropdown" id="dropdown-billing">
+                <li class="{% active request economy%} dropdown {% block economy_open %}{% endblock economy_open %}" id="dropdown-billing">
                     
                     <a href="{{economy}}">
                     <i class="material-icons arrow_dropdown">arrow_right</i>
@@ -71,7 +69,7 @@
                        <!-- <li class="{% active request groups%}"> <a href="">Receiver type</a></li>-->
                     </ul>
                 </li>
-                <li class="{% active request school%} dropdown" id="dropdown-school">
+                <li class="{% active request school%} dropdown {% block school_open %}{% endblock school_open %}" id="dropdown-school">
                     <a href="{{school}}">
                         <i class="material-icons arrow_dropdown">arrow_right</i>
                         <i class="material-icons">school</i> 
@@ -83,7 +81,7 @@
                         <li class="{% active request groups%}"> <a href="{{groups}}">Groups</a></li>
                     </ul>
                 </li>
-                  <li class="{% active request statistics%}">
+                <li class="{% active request statistics%}">
                     <a href="{{statistics}}"><i class="material-icons">equalizer</i> Statistics</a>
                 </li>
                 <li class="{% active request organisation%}">
@@ -93,14 +91,16 @@
         </div>
     </nav> <!-- End Nav-->
     {% include 'layouts/aside.html'%}
-    <main>
+    <main {% block mainId %} {% endblock mainId%}>
+        {% block subHeader%}
+        {% endblock subHeader%}
         {% block loggedIn_content %}
-       
+
         {% endblock %}
     </main>
     {% else %}
-        {% include 'layouts/headerSignedOut.html'%}
-        <main>
+       {% include 'layouts/headerSignedOut.html'%}
+        <main class="loggedOut-main">
             {% block content %}
             {% endblock %}
             <a class="btn btn-primary" href="{% url 'login' %}">Login</a>

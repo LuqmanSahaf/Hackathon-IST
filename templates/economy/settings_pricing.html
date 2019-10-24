@@ -1,6 +1,15 @@
 {% extends 'base/base.html' %}
 {% block title %}Economy{% endblock %}
-
+{% block mainId%} id="main-container" {% endblock mainId%}>
+{% block subHeader%}
+    <section id="sub-header">
+        <div class="sub-header-components"></div>
+        <div class="sub-header-controles">
+            <button class="btn btn-secondary">Accounting Codes</button>
+            <button class="btn btn-secondary">Price Models</button>
+        </div>
+    </section>
+{% endblock subHeader%}
 {% block loggedIn_content %}
    <h1>This is the Settings Pricing and Accounting page</h1>
 {% endblock %}
